@@ -15,23 +15,28 @@ try {
     Books = JSON.parse(Books);
     console.log(Books,623);
 } catch (error) {
-    Books = [];
+    Books ={};
 }
 
 function addbooksubmit(){
-    let bookname = document.getElementById("bookname");
-    let author = document.getElementById("author");
-    let price = document.getElementById("Price");
-    let imgUrl = document.getElementById("imgUrl");
+    let bookname = document.getElementById("bookname").value;
+    let author = document.getElementById("author").value;
+    let isbn = document.getElementById("isbn").value;
+    let price = document.getElementById("Price").value;
+    let imgUrl = document.getElementById("imgUrl").value;
     console.log(bookname,author,price,imgUrl);
     let book = {
-        bookname: bookname.value,
-        bookauthor: author.value,
-        bookprice: price.value,
-        bookimgUrl: imgUrl.value
+        bookname: bookname,
+        bookauthor: author,
+        bookprice: price,
+        bookimgUrl: imgUrl
     };
-    Books.push(book);
-    console.log(555);
+    if (Books[isbn]) {
+        alert("Book already exists");
+        return;
+    }
+    Books[isbn] = book;
     localStorage.Books = JSON.stringify(Books);
     console.log(Books);
 }  
+// localStorage.Books = {};
