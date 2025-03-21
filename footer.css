@@ -1,0 +1,50 @@
+.footer{
+  background-color: rgb(53, 84, 102);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.shop , .part2{
+  color: black;
+  font-weight: 800;
+  
+}
+.part1, .part2 ,.part3{
+ padding-bottom: 30px;
+ font-size: clamp(15px,1.5vw,500px);
+}
+.genre{
+  margin-top: 10px;
+  font-size: clamp(15px,1.2vw,500px);
+  padding-left:15px ;
+}
+.part1{
+  margin-left:70px ;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+}
+.connect{
+  display: flex;
+  justify-content:space-around;
+  font-size: clamp(15px,1.5vw,500px);
+  padding-bottom:5px;
+}
+@media screen and (max-width: 1000px){
+  .part1{
+    display: none;
+    width: 0;
+  }
+  .footer{
+  flex-direction: column;
+  text-align: center;
+  }
+ 
+  
+}
+
