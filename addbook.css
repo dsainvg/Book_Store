@@ -1,0 +1,9 @@
+.addbook{
+    margin-top: 90px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #f2f2f2;  
+}

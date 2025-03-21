@@ -1,3 +1,9 @@
+let Books = [];
+localStorage.setItem("Books", JSON.stringify(Books));
+let cart = [];
+localStorage.setItem("cart", JSON.stringify(cart));
+
+
 function toggleHomecategories() {
     document.getElementById("home").classList.toggle("seen");
   } 
@@ -8,4 +14,5 @@ function toggleHomecategories() {
         home.classList.remove('seen');
       }
     }
-  }
+}
+
