@@ -13,46 +13,23 @@
 </head>
 
 <body>
-   <div class="bar">
-      <div class=" left">
-         <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
-            fill="white">
-            <path
-               d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-         </svg>
-         <div class="homedrop">
-            <button class="symbol" onclick="toggleHomecategories()">
-               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
-                  <path
-                     d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-               </svg>
-            </button>
-            <div class="homedrop-content" id="home">
-               <a href="#">Sign in</a>
-               <a href="#">Sign up</a>
-               <a href="#">About</a>
-               <a href="#">Contact</a>
+   <nav>
+      <a href="#">Book Store</a>
+      <div class="spacer"></div>
+      <ul>
+         <li>
+            <div id="searchContainer">
+            <button id="searchIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.<path fill="inherit" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+            <input type="text" id="searchBar" placeholder="Search for books">
             </div>
-         </div>
-      </div>
-      <div class="helloworld">
-         </div>
-         <button class="about">
-            About
-         </button>
-         <button class="contact">
-            Contact
-         </button>
-         <div class=" right">
-            <input class="searchbox" type="text" placeholder="Search for books....">
-            <button class="signin">
-               Sign in
-            </button>
-            <button class="signup">
-               Sign up
-            </button>
-         </div>
-   </div>
+         </li>
+         <li>
+            <a href="/wishlist" id="wishlist">Wishlist</a>
+         </li>
+      </ul>
+      <div id="hamburger">☰</div>
+      <button id="theme">&#127769;</button>
+   </nav>
    
    <section class="addbook">
       <div class="addbookform">
