@@ -1,61 +1,37 @@
 <!DOCTYPE>
 <html>
-
 <head>
+   <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="navigation bar.css">
    <link rel="stylesheet" href="footer.css">
    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <script src="scriptIndex.js"></script>
 </head>
-
 <body>
-   <div class="bar">
-      <div class=" left">
-         <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
-            fill="white">
-            <path
-               d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-         </svg>
-         <div class="homedrop">
-            <button class="symbol" onclick="toggleHomecategories()">
-               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
-                  <path
-                     d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-               </svg>
-            </button>
-            <div class="homedrop-content" id="home">
-               <a href="#">Sign in</a>
-               <a href="#">Sign up</a>
-               <a href="#">About</a>
-               <a href="#">Contact</a>
+   <nav>
+      <a href="#">Book Store</a>
+      <div class="spacer"></div>
+      <ul>
+         <li>
+            <div id="searchContainer">
+            <button id="searchIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.<path fill="inherit" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+            <input type="text" id="searchBar" placeholder="Search for books">
             </div>
-         </div>
-      </div>
-      <div class="helloworld">
-         </div>
-         <button class="about">
-            About
-         </button>
-         <button class="contact">
-            Contact
-         </button>
-         <div class=" right">
-            <input class="searchbox" type="text" placeholder="Search for books....">
-            <button class="signin">
-               Sign in
-            </button>
-            <button class="signup">
-               Sign up
-            </button>
-         </div>
-      
-   </div>
+         </li>
+         <li>
+            <a href="/wishlist" id="wishlist">Wishlist</a>
+         </li>
+      </ul>
+      <div id="hamburger">☰</div>
+      <button id="theme">&#127769;</button>
+   </nav>
    <section id="books" class="books">
       <div class="book">
-         <img class="imgOfBook"src="https://bookbins.in/wp-content/uploads/2024/04/Twisted-Hate-Games-Love-Lies-Combo-Ana-Huang-Buy-Online-Bookbins-3-500x500.jpg" alt="Complete Twisted Series Combo by Ana Huang : Twisted Love, Hate, Games & Lies">
+         <img class="imgOfBook"
+            src="https://bookbins.in/wp-content/uploads/2024/04/Twisted-Hate-Games-Love-Lies-Combo-Ana-Huang-Buy-Online-Bookbins-3-500x500.jpg"
+            alt="Complete Twisted Series Combo by Ana Huang : Twisted Love, Hate, Games & Lies">
          <div>
             <p class="bookname">Complete Twisted Series Combo by Ana Huang : Twisted Love, Hate, Games & Lies</p>
             <p class="author">Ana Huang</p>
@@ -67,15 +43,7 @@
          </div>
       </div>
    </section>
-
-
-
-
-
-
-   </section>
    <div class="footer">
-
       <div class="part1">
          <p class="shop">
             Shop Categories
@@ -99,9 +67,7 @@
             <p>
                Science Fiction
             </p>
-
          </div>
-
       </div>
       <div class="part2">
          <p>
@@ -142,7 +108,6 @@
          <p>
             Address : 123, XYZ street, ABC city
          </p>
-
       </div>
       <div class="part4">
          <div class="connect">
@@ -217,11 +182,8 @@
                </svg>
             </a>
          </div>
-
-
       </div>
    </div>
-
+   <script src="scriptIndex.js"></script>
 </body>
-
 </html>
