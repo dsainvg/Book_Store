@@ -1,4 +1,6 @@
-let books = [
+let books = localStorage.getItem("books")
+? JSON.parse(localStorage.getItem("books"))
+: [
     {
         id: 1,
         title: "Too Good to Be True: A Smart, Funny Will-They-Won’t-They Romance",
@@ -203,9 +205,10 @@ let books = [
 
 let filteredBooks = books;
 
-localStorage.setItem("books", JSON.stringify(books));
-let cart = [];
-localStorage.setItem("cart", JSON.stringify(cart));
+let cart = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+// localStorage.setItem("cart", JSON.stringify(cart));
 
 document.getElementById("theme").addEventListener("click", function () {
     document.body.classList.toggle("dark");
@@ -238,11 +241,11 @@ function showBooks() {
          <div>
             <p class="title">${book.title}</p>
             <p class="author">${book.author}</p>
-            <p class="price">₹${book.price}</p>
             <p class="description">${book.description}</p>
+            <p class="price">₹${book.price}</p>
             <div class="actions">
-               <button class="buy">Buy now</button>
-               <button class="delete">Delete</button>
+               <button class="buy ${cart.find((item)=>item.id == book.id)?"added":""}" onclick="addToCart(event, ${book.id})">${cart.find((item)=>item.id == book.id)?"Added to cart":"Add to cart"}</button>
+               <button class="delete" onclick="removeBook(${book.id})">Delete</button>
             </div>
          </div>
       </div>
@@ -261,3 +264,32 @@ document.getElementById("searchBar").addEventListener("keydown", function (e) {
     }
     showBooks();
 });
+
+// let buyButton = document.getElementById("buy");
+
+function addToCart(e, id){
+  let buyButton = e.target;
+  id = parseInt(id);
+  if(cart.find((item)=>item.id == id)){
+    cart = cart.filter((item)=>{item.id != id});
+    buyButton.textContent = "Add to cart";
+    buyButton.classList.remove("added");
+
+  }else{
+    cart.push(books.find((item)=>item.id == id));
+    buyButton.textContent = "Added to cart";
+    buyButton.classList.add("added");
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function removeBook(id){
+  if(cart.find((item)=>item.id == id)){
+    cart = cart.filter((item)=>{item.id != id});
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+  books = books.filter((book)=>book.id != id);
+  localStorage.setItem("books", JSON.stringify(books));
+  filteredBooks = books;
+  showBooks();
+}
