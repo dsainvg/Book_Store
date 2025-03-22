@@ -59,7 +59,7 @@ li{
 #searchIcon svg{
   height: 24px;
 }
-
+#addbook,
 #wishlist{
   background-color: var(--accent);
   color: var(--text-sec);
@@ -69,7 +69,7 @@ li{
   border-radius: 50px;
   transition: background-color 0.2s;
 }
-
+#addbook:hover,
 #wishlist:hover{
   background-color: var(--accent-light);
 }
