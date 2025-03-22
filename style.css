@@ -12,9 +12,11 @@ body{
     --b: #000112;
     --r: #db4243;
     --sl: #e4ebfa;
+    --shadow-l: rgba(54, 78, 126, 0.1);
 
     --dbl: #20212c;
     --lbl: #2b2c37;
+    --shadow-d: rgba(0, 0, 0, 0.2);
 
     --bg: var(--llb);
     --bg-bright: var(--w);
@@ -24,6 +26,7 @@ body{
     --border: var(--sl);
     --text-sec: var(--w);
     --sld: #3e3f4e;
+    --shadow: var(--shadow-l);
 
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
@@ -38,6 +41,7 @@ body.dark{
     --accent-light: var(--lb);
     --border: var(--sld);
     --text-sec: var(--w);
+    --shadow: var(--shadow-d);
 }
 
 a{
@@ -53,4 +57,43 @@ input, button{
 
 button{
     cursor: pointer;
+}
+
+#booksContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 50px 100px;
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    width: min(270px, 90%);
+    margin: 20px;
+    overflow: hidden;   
+    height: 400px;
+    background-color: var(--bg-bright);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 6px 4px 0 var(--shadow);
+}
+
+.book img{
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.title{
+    margin: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

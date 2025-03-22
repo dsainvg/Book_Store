@@ -15,6 +15,7 @@ nav {
 nav > a{
   font-weight: 700;
   font-size: 24px;
+  margin-right: 10px;
 }
 
 .spacer{
@@ -41,6 +42,7 @@ li{
   border-radius: 50px;
   width: 40vw;
   max-width: 400px;
+  transition: box-shadow 0.2s;
 }
 
 #searchBar{
@@ -88,7 +90,11 @@ li{
   display: none;
 }
 
-@media screen and (max-width:700px){
+#searchContainer:has(>input:focus){
+  box-shadow: 0 2px 4px 0px var(--shadow);
+}
+
+@media screen and (max-width:900px){
   nav{
     flex-wrap: wrap;
   }
@@ -101,15 +107,29 @@ li{
   }
   
   ul{
+    overflow: hidden;
     flex-direction: column;
     order: 5;
-    width: 100vw;
-    margin-bottom: 10px;
+    height: 0;
+    position: absolute;
+    top: 56px;
+    width: 100%;
+    padding-bottom: 25px;
+    background-color: var(--bg-bright);
+  }
+
+  ul.show{
+    height: fit-content;
+    transition: height 0.3s;
   }
 
   li{
     margin: 0;
-    margin-top: 18px;
+    margin-top: 22px;
+  }
+
+  li:last-of-type a:last-of-type{
+    margin-left: 10px;
   }
 
   #searchContainer{
