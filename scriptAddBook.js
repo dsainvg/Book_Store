@@ -1,10 +1,9 @@
-let Books;
+let books;
 try {description
-    Books = localStorage.getItem("Books");
-    Books = JSON.parse(Books);
-    console.log(Books,623);
+    books = localStorage.getItem("books");
+    books = JSON.parse(books);
 } catch (error) {
-    Books =[];
+    books =[];
 }
 
 function addbooksubmit(){
@@ -14,7 +13,7 @@ function addbooksubmit(){
     let price = document.getElementById("Price").value;
     let imgUrl = document.getElementById("imgUrl").value;
     console.log(bookname,author,price,imgUrl);
-    len = Books.length;
+    len = books.length;
     let book = {
         id : len+1,
         bookname: bookname,
@@ -23,7 +22,7 @@ function addbooksubmit(){
         bookimgUrl: imgUrl,
         description: description
     };
-    Books.push(book);
+    books.push(book);
     localStorage.Books = JSON.stringify(Books);
     document.getElementById("booksContainer").innerHTML += `
     <div class="book" id="book${len}">
@@ -41,6 +40,5 @@ function addbooksubmit(){
          </div>
       </div>
       `;
-    console.log(Books);
 }  
 
