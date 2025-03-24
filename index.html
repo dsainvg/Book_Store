@@ -4,7 +4,8 @@
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="navigation bar.css">
    <link rel="stylesheet" href="footer.css">
-   <script>src="scriptAddBook.js"></script>
+   <link rel="stylesheet" href="addbook.css">
+   <script src="scriptAddBook.js"></script>
    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet">
@@ -23,7 +24,7 @@
          </li>
          <li>
             <a href="wishlist.html" id="wishlist">Wishlist</a>
-            <a href="#addbook" id="addbook">Add Book</a>
+            <a href="#addbook1" id="addbook">Add Book</a>
          </li>
       </ul>
       <button id="hamburger">☰</button>
@@ -32,21 +33,21 @@
    <section id="books">
       <div id="booksContainer"></div>
    </section>
-   <section id="addbook" class="addbook">
+   <section id="addbook1" class="addbook">
       <div class="addbookform">
-         <form>
-            <label for="bookname">Book Name:</label><br>
-            <input type="text" id="bookname" name="bookname"><br>
-            <label for="isbn">ISBN:</label><br>
-            <input type="text" id="isbn" name="isbn"><br>
-            <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author"><br>
-            <label for="Price">Price:</label><br>
-            <input type="text" id="Price" name="Price"><br>
-            <label for="imageUrl">Image URL:</label><br>
-            <input type="text" id="imgUrl" name="imageUrl"><br>
-            <button onclick="addbooksubmit()" type="submit" class="submit">Submit</button>
+         <form class="addbookformblock">
+            <label for="bookname">Book Name:</label>
+            <input type="text" id="bookname" name="bookname">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author">
+            <label for="Price">Price:</label>
+            <input type="text" id="Price" name="Price">
+            <label for="imageUrl">Image URL:</label>
+            <input type="text" id="imgUrl" name="imageUrl">
          </form>
+         <button onclick="addbooksubmit()" type="submit" class="submit">Submit</button>
    </section>
    <div class="footer">
       <div class="part1">
@@ -108,7 +109,7 @@
             Phone number : 1234567890
          </p>
          <p>
-            Email :rupya13017@gmail.com
+            Email :!!!!!!!!
          </p>
          <p>
             Address : 123, XYZ street, ABC city
