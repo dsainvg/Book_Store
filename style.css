@@ -45,6 +45,9 @@ body.dark{
     --text-sec: var(--w);
     --shadow: var(--shadow-d);
 }
+html{
+    scroll-behavior: smooth;
+  }
 
 a{
     text-decoration: none;
