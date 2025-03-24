@@ -10,7 +10,7 @@ try {description
 function addbooksubmit(){
     let bookname = document.getElementById("bookname").value;
     let author = document.getElementById("author").value;
-    let  = document.getElementById("description").value;
+    let description = document.getElementById("description").value;
     let price = document.getElementById("Price").value;
     let imgUrl = document.getElementById("imgUrl").value;
     console.log(bookname,author,price,imgUrl);
@@ -43,3 +43,4 @@ function addbooksubmit(){
       `;
     console.log(Books);
 }  
+
