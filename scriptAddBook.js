@@ -16,6 +16,7 @@ function addbooksubmit(e){
     };
     if (book.id && book.title && book.author && book.price && book.coverImage && book.description){
         addBook(book);
+        toggleActive();
     }
     else{
         alert("Please fill all the fields");
@@ -28,10 +29,10 @@ function addBook(book){
     document.getElementById("addForm").reset();
 }
 
-document.getElementById("addbook").addEventListener("click", function(){
+function toggleActive(){
     document.getElementById("newBook").classList.toggle("active");
-});
+}
 
-document.getElementById("closeModal").addEventListener("click", function(){
-    document.getElementById("newBook").classList.toggle("active");
-});
+document.getElementById("addbook").addEventListener("click", toggleActive);
+
+document.getElementById("closeModal").addEventListener("click", toggleActive);
