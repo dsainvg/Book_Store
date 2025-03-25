@@ -1,3 +1,4 @@
+a=books.length;
 function addbooksubmit(e){
     e.preventDefault();
     let bookname = document.getElementById("bookname").value;
@@ -5,9 +6,8 @@ function addbooksubmit(e){
     let description = document.getElementById("description").value;
     let price = document.getElementById("price").value;
     let imgUrl = document.getElementById("imgUrl").value;
-    let len = books.length;
     let book = {
-        id : len+1,
+        id : a++,
         title: bookname,
         author: author,
         price: price,
