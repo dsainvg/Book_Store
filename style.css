@@ -9,6 +9,7 @@ body{
     --w:#fff;
     --db: #635fc7;
     --lb: rgb(132, 113, 242);
+    --mlb: rgb(130, 143, 163);
     --b: #000112;
     --r: #db4243;
     --sl: #e4ebfa;
@@ -24,6 +25,7 @@ body{
     --text: var(--b);
     --accent: var(--db);
     --accent-light: var(--lb);
+    --accent-secondary: var(--mlb);
     --border: var(--sl);
     --text-sec: var(--w);
     --sld: #3e3f4e;
@@ -52,9 +54,10 @@ html{
 a{
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
-input, button{
+input, button, textarea{
     outline: none;
     border: none;
     background-color: transparent;
@@ -152,6 +155,11 @@ button{
 
 .buy{
     background-color: var(--accent);
+    transition: opacity 0.2s;
+}
+
+.buy:hover{
+    opacity: 0.9;
 }
 
 .buy.added{
