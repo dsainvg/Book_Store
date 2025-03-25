@@ -1,8 +1,26 @@
-document.getElementById("theme").addEventListener("click", function () {
-    document.body.classList.toggle("dark");
-    document.getElementById("theme").innerHTML =
-        document.body.classList.contains("dark") ? "🌞" : "🌙";
-});
+try {
+    isdarkmode = JSON.parse(localStorage.getItem("isdarkmode"));
+} catch (e) {
+    isdarkmode = false;
+    localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
+}
+if (isdarkmode) {
+toggletheme();
+}
+function toggletheme() {
+    if (isdarkmode){
+        isdarkmode = false;
+        document.body.classList.remove("dark");
+        document.getElementById("theme").innerHTML = "🌞";
+        localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
+    }
+    else{
+        isdarkmode = true;
+        document.body.classList.add("dark");
+        document.getElementById("theme").innerHTML = "🌙";
+        localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
+    }
+}
 
 document.getElementById("hamburger").addEventListener("click", function () {
     document.querySelector("ul").classList.toggle("show");

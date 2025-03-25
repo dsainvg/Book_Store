@@ -1,8 +1,26 @@
-document.getElementById("theme").addEventListener("click", function () {
-    document.body.classList.toggle("dark");
-    document.getElementById("theme").innerHTML =
-        document.body.classList.contains("dark") ? "🌞" : "🌙";
-});
+try {
+    isdarkmode = JSON.parse(localStorage.getItem("isdarkmode"));
+} catch (e) {
+    isdarkmode = false;
+    localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
+}
+if (isdarkmode) {
+toggletheme();
+}
+function toggletheme() {
+    if (isdarkmode){
+        isdarkmode = false;
+        document.body.classList.remove("dark");
+        document.getElementById("theme").innerHTML = "🌞";
+        localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
+    }
+    else{
+        isdarkmode = true;
+        document.body.classList.add("dark");
+        document.getElementById("theme").innerHTML = "🌙";
+        localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
+    }
+}
 
 document.getElementById("hamburger").addEventListener("click", function () {
     document.querySelector("ul").classList.toggle("show");
@@ -51,7 +69,7 @@ function showCartbooks() {
                  <p class="quantity">Quantity: ${book.quantity}</p>
                  <p class="price">₹${book.price}</p>
                  <div class="actions">
-                     <button class="remove" onclick="removeWishlist(${book.id})">Remove from Cart</button>
+                     <button class="remove" onclick="removefromcart(${book.id})">Remove from Cart</button>
                  </div>
               </div>
             </div>
@@ -61,7 +79,7 @@ function showCartbooks() {
 }
 showCartbooks();
 
-function removeWishlist(id){
+function removefromcart(id){
     let cart = JSON.parse(localStorage.getItem("cart"));
     if(cart.find((item)=>item.id == id)){
         let updatedCart = cart.filter((item)=>{item.id != id});
