@@ -208,8 +208,11 @@ let filteredBooks = books;
 let cart = localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
-// localStorage.setItem("cart", JSON.stringify(cart));
 
+// localStorage.setItem("cart", JSON.stringify(cart));
+let wish = localStorage.getItem("wish")
+    ? JSON.parse(localStorage.getItem("wish"))
+    : [];
 document.getElementById("theme").addEventListener("click", function () {
     document.body.classList.toggle("dark");
     document.getElementById("theme").innerHTML =
@@ -238,6 +241,7 @@ function showBooks() {
     <div class="book" id="book${index}">
          <img src="${book.coverImage}"
             alt="${book.title}">
+             <svg class="wishlistheart" id="wishlistheart${book.id}" onclick="addToWishlist(${book.id})" viewBox="-2.72 -2.72 21.44 21.44" fill="None" xmlns="http://www.w3.org/2000/svg" stroke="#f40bc1" stroke-width="0.8800000000000001"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" ></path> </g></svg>
          <div>
             <p class="title">${book.title}</p>
             <p class="author">${book.author}</p>
@@ -248,7 +252,7 @@ function showBooks() {
                <button class="delete" onclick="removeBook(${book.id})">Delete</button>
             </div>
          </div>
-      </div>
+    </div>
       `;
     });
 }
@@ -265,6 +269,20 @@ document.getElementById("searchBar").addEventListener("keydown", function (e) {
     showBooks();
 });
 
+function addToWishlist(id) {
+    id = parseInt(id);
+    let wishlistheart = document.getElementById("wishlistheart" + id);
+    if (wish.find((item) => item.id == id)) {
+        wish = wish.filter((item) => item.id != id);
+        wishlistheart.style.fill = "none";
+    } else {
+        wish.push(books.find((item) => item.id == id));
+        wishlistheart.style.fill = "#f40bc1";
+    }
+    console.log(wish);
+    localStorage.setItem("wish", JSON.stringify(wish));
+}
+
 // let buyButton = document.getElementById("buy");
 
 function addToCart(e, id){
@@ -273,8 +291,8 @@ function addToCart(e, id){
   cartlen = cart.length;
   if(cart.find((item)=>item.id == id)){
     cart = cart.filter((item)=>{item.id != id});
-    buyButton.textContent = "Add to cart";
-    buyButton.classList.remove("added");
+    // buyButton.textContent = "Add to cart";
+    // buyButton.classList.remove("added");
     cart[cartlen].quantity += 1;
 
   }else{
