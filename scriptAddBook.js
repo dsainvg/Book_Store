@@ -14,6 +14,14 @@ function addbooksubmit(e){
         coverImage: imgUrl,
         description: description
     };
+    if (book.id && book.title && book.author && book.price && book.coverImage && book.description){
+        addBook(book);
+    }
+    else{
+        alert("Please fill all the fields");
+    }
+}
+function addBook(book){
     books.push(book);
     localStorage.setItem("books", JSON.stringify(books));
     showBooks();

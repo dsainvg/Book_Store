@@ -270,15 +270,18 @@ document.getElementById("searchBar").addEventListener("keydown", function (e) {
 function addToCart(e, id){
   let buyButton = e.target;
   id = parseInt(id);
+  cartlen = cart.length;
   if(cart.find((item)=>item.id == id)){
     cart = cart.filter((item)=>{item.id != id});
     buyButton.textContent = "Add to cart";
     buyButton.classList.remove("added");
+    cart[cartlen].quantity += 1;
 
   }else{
     cart.push(books.find((item)=>item.id == id));
     buyButton.textContent = "Added to cart";
     buyButton.classList.add("added");
+    cart[cartlen].quantity = 1;
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }

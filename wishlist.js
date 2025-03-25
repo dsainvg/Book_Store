@@ -48,9 +48,10 @@ function showCartbooks() {
                  <p class="title">${book.title}</p>
                  <p class="author">${book.author}</p>
                  <p class="description">${book.description}</p>
+                 <p class="quantity">Quantity: ${book.quantity}</p>
                  <p class="price">₹${book.price}</p>
                  <div class="actions">
-                     <button class="remove" onclick="removeWishlist(${book.id})">Remove from Wishlist</button>
+                     <button class="remove" onclick="removeWishlist(${book.id})">Remove from Cart</button>
                  </div>
               </div>
             </div>
