@@ -1,28 +1,4 @@
-let isdarkmode;
-try {
-    isdarkmode = JSON.parse(localStorage.getItem("isdarkmode"));
-} catch (e) {
-    isdarkmode = false;
-    localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
-}
-if (isdarkmode) {
-toggletheme();
-}
-function toggletheme() {
-    if (isdarkmode){
-        isdarkmode = false;
-        document.body.classList.remove("dark");
-        document.getElementById("theme").innerHTML = "🌞";
-        localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
-    }
-    else{
-        isdarkmode = true;
-        document.body.classList.add("dark");
-        document.getElementById("theme").innerHTML = "🌙";
-        localStorage.setItem("isdarkmode", JSON.stringify(isdarkmode));
-    }
-}
-// console.log(isdarkmode);
+
 let books = localStorage.getItem("books")
 ? JSON.parse(localStorage.getItem("books"))
 : [
