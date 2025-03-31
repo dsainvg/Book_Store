@@ -8,32 +8,32 @@ document.body.addEventListener("click", function (e) {
     }
 });
 
-document.getElementById("searchBar").addEventListener("keydown", function (e) {
+document.getElementById("searchBar").addEventListener("keyup", function (e) {
     let term = e.target.value.trim().toLowerCase();
-    filteredBooks = wishlistBooks.filter((book) =>
+    filteredBooks = cartBooks.filter((book) =>
         book.title.toLowerCase().includes(term)
     );
     if (term === "") {
-        filteredBooks = wishlistBooks;
+        filteredBooks = cartBooks;
     }
-    showBooks();
+    showCartbooks();
 });
 
-let wishlistBooks = localStorage.getItem("cart");
-if (wishlistBooks) {
-    const jsonData = JSON.parse(wishlistBooks);
-    wishlistBooks = jsonData;
+let cartBooks = localStorage.getItem("cart");
+if (cartBooks) {
+    const jsonData = JSON.parse(cartBooks);
+    cartBooks = jsonData;
     console.log(jsonData);
 }
-
+let filteredBooks = cartBooks;
 
 function showCartbooks() {
     document.getElementById("booksContainer").innerHTML = "";
     /*document.getElementById("booksContainer").innerHTML += "<div class ='wishlist-heading' style='text-decoration: underline;'><h2>Your Wishlist</h2></div>";*/
-    if (wishlistBooks.length === null || wishlistBooks.length === undefined || wishlistBooks.length === 0) {
+    if (filteredBooks.length === null || filteredBooks.length === undefined || filteredBooks.length === 0) {
         document.getElementById("booksContainer").innerHTML = `<p>No books added to Cart</p>`;
     }
-    wishlistBooks.forEach((book, index) => {
+    filteredBooks.forEach((book, index) => {
         document.getElementById("booksContainer").innerHTML += `
         <div class="wishlist-grid">
           <div class="wishlistbook" id="book${index}">
@@ -56,12 +56,11 @@ function showCartbooks() {
 showCartbooks();
 
 function removefromcart(id){
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if(cart.find((item)=>item.id == id)){
-        let updatedCart = cart.filter((item)=>{item.id != id});
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-        console.log("Updated wishlist")
+    id = parseInt(id);
+    if(cartBooks.find((item)=>item.id == id)){
+        cartBooks = cartBooks.filter((item)=>item.id != id);
+        localStorage.setItem("cart", JSON.stringify(cartBooks));
     }
-    wishlistBooks = wishlistBooks.filter((book)=>book.id != id); 
+    filteredBooks = cartBooks;
     showCartbooks(); 
 }

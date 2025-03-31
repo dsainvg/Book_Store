@@ -8,7 +8,14 @@ document.body.addEventListener("click", function (e) {
     }
 });
 
-document.getElementById("searchBar").addEventListener("keydown", function (e) {
+
+let wishlistBooks = localStorage.getItem("wish");
+if (wishlistBooks) {
+    const jsonData = JSON.parse(wishlistBooks);
+    wishlistBooks = jsonData;
+}
+let filteredBooks = wishlistBooks;
+document.getElementById("searchBar").addEventListener("keyup", function (e) {
     let term = e.target.value.trim().toLowerCase();
     filteredBooks = wishlistBooks.filter((book) =>
         book.title.toLowerCase().includes(term)
@@ -16,23 +23,16 @@ document.getElementById("searchBar").addEventListener("keydown", function (e) {
     if (term === "") {
         filteredBooks = wishlistBooks;
     }
-    showBooks();
+    showwishlistbooks();
 });
 
-let wishlistBooks = localStorage.getItem("wish");
-if (wishlistBooks) {
-    const jsonData = JSON.parse(wishlistBooks);
-    wishlistBooks = jsonData;
-}
 
-
-function showCartbooks() {
-    document.getElementById("booksContainer").innerHTML = "";
-    /*document.getElementById("booksContainer").innerHTML += "<div class ='wishlist-heading' style='text-decoration: underline;'><h2>Your Wishlist</h2></div>";*/
-    if (wishlistBooks.length === null || wishlistBooks.length === undefined || wishlistBooks.length === 0) {
-        document.getElementById("booksContainer").innerHTML = `<p>No books added to wishlist</p>`;
+function showwishlistbooks() {
+    document.getElementById("booksContainer").innerHTML = "";/*document.getElementById("booksContainer").innerHTML += "<div class ='wishlist-heading' style='text-decoration: underline;'><h2>Your Wishlist</h2></div>";*/
+    if (filteredBooks.length === null || filteredBooks.length === undefined || filteredBooks.length === 0) {
+        document.getElementById("booksContainer").innerHTML = `<p>No books found</p>`;
     }
-    wishlistBooks.forEach((book, index) => {
+    filteredBooks.forEach((book, index) => {
         document.getElementById("booksContainer").innerHTML += `
         <div class="wishlist-grid">
           <div class="wishlistbook" id="book${index}">
@@ -51,15 +51,14 @@ function showCartbooks() {
         `;
     });
 }
-showCartbooks();
+showwishlistbooks();
 
-function removeWishlist(id){
-    let cart = JSON.parse(localStorage.getItem("wish"));
-    if(cart.find((item)=>item.id == id)){
-        let updatedCart = cart.filter((item)=>{item.id != id});
-        localStorage.setItem("wish", JSON.stringify(updatedCart));
-        console.log("Updated wishlist")
-    }
-    wishlistBooks = wishlistBooks.filter((book)=>book.id != id); 
-    showCartbooks(); 
+function removeWishlist(id) {
+    id = parseInt(id);
+    wishlistBooks = wishlistBooks.filter((item) => item.id != id);
+
+    localStorage.setItem("wish", JSON.stringify(wishlistBooks));
+    console.log("Updated wishlist");
+    filteredBooks = wishlistBooks;
+    showwishlistbooks();
 }
